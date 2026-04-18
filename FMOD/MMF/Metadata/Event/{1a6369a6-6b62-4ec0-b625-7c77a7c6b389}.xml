@@ -159,9 +159,18 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{9586ff7a-5ef0-42af-99a9-03eacb949db7}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>68.257959183673464</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{a57b4fe3-27f3-404d-9ace-18738a38b9a7}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{977458f8-b80e-4564-bce1-e259437a70b0}</destination>
 		</relationship>
@@ -218,9 +227,18 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{d9250bdb-7eb1-4e8b-a010-cec06d160fb3}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>64.130612244897961</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{475b3eb5-bddc-473e-ba9f-db5ca9e5285d}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{462bfb7d-7e81-4817-991d-c0daa1008426}</destination>
 		</relationship>
@@ -327,6 +345,12 @@
 		<property name="initialValue">
 			<value>-80</value>
 		</property>
+		<property name="attackTime">
+			<value>480</value>
+		</property>
+		<property name="releaseTime">
+			<value>10000</value>
+		</property>
 		<property name="finalValue">
 			<value>-80</value>
 		</property>
@@ -338,6 +362,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{c94e35b0-5987-42e7-ad6f-8e8ea79f3457}" />
 	<object class="MixerBusFader" id="{08d754cd-a48b-41a9-9a1f-14c62ec14c16}" />
+	<object class="ADSRModulator" id="{a57b4fe3-27f3-404d-9ace-18738a38b9a7}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="TransitionSourceFadeOutCurve" id="{7cb01b36-5c3f-4fa8-8de5-07389a9a5dc9}">
 		<relationship name="startPoint">
 			<destination>{23ec94f0-87e5-4409-801a-79b084092afc}</destination>
@@ -374,6 +409,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{572d776c-01c4-4013-a80b-f6d3a17e701a}" />
+	<object class="ADSRModulator" id="{475b3eb5-bddc-473e-ba9f-db5ca9e5285d}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="TransitionSourceFadeOutCurve" id="{73f9e74a-7c4a-42a6-adee-21d390b2a80c}">
 		<relationship name="startPoint">
 			<destination>{bc6cb9a6-1fc2-4e26-a165-5c17df9c928b}</destination>
