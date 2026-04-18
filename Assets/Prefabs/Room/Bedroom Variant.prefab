@@ -1017,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VCam Bedroom
       objectReference: {fileID: 0}
+    - target: {fileID: 9162576121682611372, guid: 8dcdd65a4887efb419bfdd2e2191c7c0, type: 3}
+      propertyPath: roomType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

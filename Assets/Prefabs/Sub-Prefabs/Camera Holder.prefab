@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340290992381003391}
   - component: {fileID: 5982810427223459047}
+  - component: {fileID: 5705085293993763208}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -70,6 +71,18 @@ MonoBehaviour:
       Data4: 452533512
     Path: event:/Music/Penguin
   startMusicIndex: 0
+--- !u!114 &5705085293993763208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616869763683136538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1679dbf532f174a41bd43d68bca13c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3530235729408648359
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 6414854994892845988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.96, y: -0.76, z: -10.5}
+  m_LocalPosition: {x: -4.7973185, y: 1.2331703, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,9 +310,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.009961367
     y: 0
-    width: 1
+    width: 0.98007727
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

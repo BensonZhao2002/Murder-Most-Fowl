@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Floor: {fileID: 89120672651602827}
   _floors:
   - {fileID: 89120672651602827}
+  roomType: 1
 --- !u!1 &8380269157166405254
 GameObject:
   m_ObjectHideFlags: 0

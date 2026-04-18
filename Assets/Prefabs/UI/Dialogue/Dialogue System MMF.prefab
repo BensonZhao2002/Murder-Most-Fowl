@@ -102,6 +102,50 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1408999514570188982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2490592888961271838}
+  - component: {fileID: 2636082121269129841}
+  m_Layer: 0
+  m_Name: YappingAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2490592888961271838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408999514570188982}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.990291, y: 331.57092, z: 0}
+  m_LocalScale: {x: 1.7475728, y: 1.7475728, z: 1.7475728}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8135570802605022698}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2636082121269129841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408999514570188982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300e19fa9397e4942aa5238ee9f49807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2308790618044536527
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +311,7 @@ GameObject:
   - component: {fileID: 2630036577497976393}
   - component: {fileID: 2644401551768669220}
   - component: {fileID: 2302480131413949758}
+  - component: {fileID: 4090283563246639609}
   m_Layer: 5
   m_Name: Dialogue System MMF
   m_TagString: Untagged
@@ -468,6 +513,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLanguageCode: en-US
+--- !u!114 &4090283563246639609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550219144273042960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9543f4e43a1de4c7faa534983d034291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6112059601801777843
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +707,38 @@ PrefabInstance:
     - target: {fileID: 281728943402148893, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: typewriterEffectSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2636082121269129841}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TypedCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YappingSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138983699199077274, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      propertyPath: onCharacterTyped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3559434491027144207, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -874,7 +963,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3928426441485132255, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7123696983776908577, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2490592888961271838}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949a39a0463aadd4d88a8aa7dc02c9d3, type: 3}
 --- !u!114 &2158725605988508497 stripped
