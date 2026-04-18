@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum RoomType { Room, Hall }
+
 public class ScreenManager : Singleton<ScreenManager>
 {
     [SerializeField]
@@ -49,6 +51,7 @@ public class ScreenManager : Singleton<ScreenManager>
         _isChangingRooms = true;
         _animator.SetTrigger("HideTrigger");
         // Begin Transition
+        EnvironmentSFX.SetTrainLocationSFX(room.roomType.ToString());
         yield return ITransition("RoomT_Show", "RoomT_ToHide");
 
         m_CurrentRoomScreenContainer = room;

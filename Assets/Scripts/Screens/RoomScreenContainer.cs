@@ -12,6 +12,9 @@ public class RoomScreenContainer : ScreenContainer
     [SerializeField]
     private List<Floor> _floors;
 
+    [SerializeField]
+    public RoomType roomType;
+
     public Floor Floor {
         get { return m_Floor; }
     }

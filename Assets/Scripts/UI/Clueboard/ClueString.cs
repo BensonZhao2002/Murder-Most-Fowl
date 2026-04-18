@@ -25,6 +25,8 @@ public class ClueString : MonoBehaviour,
     private MeshCollider _meshCollider;
     private Pin[] _pins;
 
+    private bool _hasPlayedConnectSound = false;
+
     public Pin[] Pins
     {
         get => _pins;
@@ -43,6 +45,7 @@ public class ClueString : MonoBehaviour,
         {
             transforms[i] = (RectTransform)tTransform.GetChild(i);
         }
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/StringPull");
     }
 
     void OnDestroy()
@@ -73,6 +76,11 @@ public class ClueString : MonoBehaviour,
 
         if (_pins[1])
         {
+            if (!_hasPlayedConnectSound)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/StringConnect");
+                _hasPlayedConnectSound = true;
+            }
             transform.position = _pins[0].transform.position;
             Vector2 endPos = (_pins[1].transform.position - transform.position) / (ClueBoard.Instance.BoardTransform.localScale.x * ClueBoardManager.Instance.transform.localScale.x);
             SetEndPoint(endPos);
@@ -160,6 +168,10 @@ public class ClueString : MonoBehaviour,
         if (deduction != null)
         {
             ClueBoardManager.Instance.InstantiateClue(deduction.ClueID);
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/DeduceSuccess");
+        } else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/DeduceFail");
         }
 
         stringMenu.gameObject.SetActive(false);
@@ -167,6 +179,7 @@ public class ClueString : MonoBehaviour,
 
     public void Delete()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/StringDelete");
         Destroy(gameObject);
     }
 }

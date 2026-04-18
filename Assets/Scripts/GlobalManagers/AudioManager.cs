@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Yarn.Unity;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -12,8 +13,9 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private int startMusicIndex;
 
 
-    private FMOD.Studio.Bus _musicBus;
+    private FMOD.Studio.Bus MasterBus;
     private FMOD.Studio.EventInstance _musicState;
+    private FMOD.Studio.EventInstance pauseSnapshot;
 
     void Awake()
     {
@@ -22,7 +24,8 @@ public class AudioManager : Singleton<AudioManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Music");
+        pauseSnapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Pause");
+        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
 
         _musicState = FMODUnity.RuntimeManager.CreateInstance(musicList[startMusicIndex]);
         _musicState.start();
@@ -36,18 +39,19 @@ public class AudioManager : Singleton<AudioManager>
 
     void OnDestroy()
     {
-        StopAllMusicEvents();
+        StopAllSoundEvents();
 
         //--------------------------------------------------------------------
         // 6: This shows how to release resources when the unity object is 
         //    disabled.
         //--------------------------------------------------------------------
         _musicState.release();
+        pauseSnapshot.release();
     }
 
-    void StopAllMusicEvents()
+    void StopAllSoundEvents()
     {
-        _musicBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     public void ChangeBGM(int index)
@@ -57,14 +61,59 @@ public class AudioManager : Singleton<AudioManager>
             return;
         }
 
+        _musicState.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _musicState.release();
         _musicState = FMODUnity.RuntimeManager.CreateInstance(musicList[index]);
         _musicState.start();
     }
 
+    public void StopBGM()
+    {
+        _musicState.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void StartBGM()
+    {
+        _musicState.start();
+    }
+
+    public void ChangeLeisure(int value)
+    {
+        _musicState.setParameterByName("Leisure", value);
+    }
+
+    [YarnCommand("StopBGM")]
+    public static void YarnStopBGM()
+    {
+        Instance.StopBGM();
+    }
+
+    [YarnCommand("StartBGM")]
+    public static void YarnStartBGM()
+    {
+        Instance.StartBGM();
+    }
+
+    [YarnCommand("ChangeBGM")]
+    public static void YarnChangeBGM(int index) 
+    {
+        Instance.ChangeBGM(index);
+    }
+
+    [YarnCommand("ChangeLeisure")]
+    public static void YarnChangeLeisure(int value)
+    {
+        Instance.ChangeLeisure(value);
+    }
+
     public void PauseEffect(bool paused)
     {
-        float pauseVal = paused ? 1.0f : 0.0f;
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", pauseVal);
+        if (paused)
+        {
+            pauseSnapshot.start();
+        } else
+        {
+            pauseSnapshot.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }

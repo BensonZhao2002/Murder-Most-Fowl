@@ -35,12 +35,19 @@ namespace UI
         {
             // Increase the counter by 1
             ChangeCounterValue(1);
+            SafeButtonSFX();
         }
 
         public void Decrease()
         {
             // Decrease the counter by 1
             ChangeCounterValue(-1);
+            SafeButtonSFX();
+        }
+
+        private void SafeButtonSFX()
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Safe/SafeButton");
         }
     }
 }

@@ -46,6 +46,7 @@ public class PuzzleSafe : Singleton<PuzzleSafe>
         _puzzleActive.comboManager.Solve += _currentSafe.OnSolved;
         // actually wait is it instantiate or set active hmmm a real thinker 
         _puzzleActive.gameObject.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Safe/SafeOpen");
     }
 
     public void DisablePuzzleScreen()
@@ -56,5 +57,6 @@ public class PuzzleSafe : Singleton<PuzzleSafe>
         }
         _currentSafe = null;
         _puzzleActive.gameObject.SetActive(false);
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Safe/SafeClose");
     }
 }

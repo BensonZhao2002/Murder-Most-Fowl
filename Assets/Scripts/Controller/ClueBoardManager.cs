@@ -139,6 +139,7 @@ public class ClueBoardManager : Singleton<ClueBoardManager>
         _spawnable = false;
         _presentButton.SetActive(false);
         _inspectButton.SetActive(false);
+        _inspectScreen.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -328,6 +329,10 @@ public class ClueBoardManager : Singleton<ClueBoardManager>
         if (!string.IsNullOrEmpty(_correctEvidence) && _correctEvidence != SelectedClue.Clue.ClueID)
         {
             node = _incorrectNode;
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Button/PresentFail");
+        } else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Button/PresentSuccess");
         }
         if (!string.IsNullOrEmpty(node))
         {
@@ -344,13 +349,18 @@ public class ClueBoardManager : Singleton<ClueBoardManager>
         CanvasGroup inspectGroup = InspectScreen.gameObject.GetComponent<CanvasGroup>();
         inspectGroup.alpha = 1;
         Debug.Log("Open!");
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Button/InspectOn");
     }
 
     public void CloseInspectScreen()
     {
-        Debug.Log("Closed!");
-        InspectScreen.gameObject.SetActive(false);
-        CanvasGroup inspectGroup = InspectScreen.gameObject.GetComponent<CanvasGroup>();
-        inspectGroup.alpha = 0;
+        if (InspectScreen.gameObject.activeSelf)
+        {
+            Debug.Log("Closed!");
+            InspectScreen.gameObject.SetActive(false);
+            CanvasGroup inspectGroup = InspectScreen.gameObject.GetComponent<CanvasGroup>();
+            inspectGroup.alpha = 0;
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Button/InspectOff");
+        }
     }
 }

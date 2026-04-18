@@ -50,6 +50,7 @@ public class Safe : PlayerInteractable
         {
             DialogueHelper.Instance.DialogueRunner.StartDialogue(_solvedDialogue);
             _firstSolve = true;
+            FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Safe/SafeUnlock");
         } else
         {
             DialogueHelper.Instance.DialogueRunner.StartDialogue("OpenSafe");

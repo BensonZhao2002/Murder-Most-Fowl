@@ -31,6 +31,7 @@ public class RoomTeleport : PlayerInteractable
     public void Teleport()
     {
         _teleportMediator.Teleport(this);
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "DoorTeleport");
     }
 
     public void TeleportTo()

@@ -59,6 +59,8 @@ public class StickyNote : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         }
 
         transform.parent = ClueBoardManager.Instance.Front;
+
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Note/NotePeel"); 
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -78,6 +80,7 @@ public class StickyNote : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
                 case ("Board"):
                     transform.parent = ClueBoardManager.Instance.Clues;
                     placed = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Note/NotePaste");
                     break;
             }
         }
@@ -125,6 +128,7 @@ public class StickyNote : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     public void Delete()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Note/NoteDelete");
         Destroy(this.gameObject);
     }
 }

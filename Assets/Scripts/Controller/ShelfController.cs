@@ -51,6 +51,7 @@ public class ShelfController : ToggleInteractable
         openCollider1.enabled = true;
         openCollider2.enabled = true;
         closedCollider.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Shelf/ShelfOpen");
     }
 
     protected override void ToggleOff()
@@ -59,5 +60,6 @@ public class ShelfController : ToggleInteractable
         openCollider1.enabled = false;
         openCollider2.enabled = false;
         closedCollider.enabled = true;
+        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.SFXObject + "Shelf/ShelfClose");
     }
 }

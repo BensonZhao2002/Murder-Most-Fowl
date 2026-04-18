@@ -149,10 +149,12 @@ namespace Clues
                     case ("Bin"):
                         OnPlacedBin(result.gameObject.GetComponent<NewBin>());
                         placed = true;
+                        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/ClueAttach");
                         break;
                     case ("Board"):
                         OnPlacedClueboard();
                         placed = true;
+                        FMODUnity.RuntimeManager.PlayOneShot(EventPathSFX.UIClueBoard + "Clue/CluePin");
                         break;
                 }
             }

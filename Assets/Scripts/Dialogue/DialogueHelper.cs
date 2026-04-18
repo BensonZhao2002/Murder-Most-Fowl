@@ -86,6 +86,8 @@ public class DialogueHelper : Singleton<DialogueHelper>
     private Dictionary<string, string> _nameDict = new();
     private bool _inDialogue;
 
+    private FMOD.Studio.EventInstance dialogueSnapshot;
+
     void Awake()
     {
         InitializeSingleton();
@@ -97,6 +99,7 @@ public class DialogueHelper : Singleton<DialogueHelper>
         //_tracks = _trackList;
         //_audioSource = _source;
 
+        dialogueSnapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Dialogue");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -118,6 +121,7 @@ public class DialogueHelper : Singleton<DialogueHelper>
     {
         InputController.Instance.Click -= AdvanceDialogueClick;
         InputController.Instance.Hold -= AdvanceDialogueClick;
+        dialogueSnapshot.release();
     }
 
     public void StartDialogue()
@@ -126,6 +130,7 @@ public class DialogueHelper : Singleton<DialogueHelper>
         AddContinueInput();
         ClueBoardManager.Instance.LockToggle();
         _background.SetActive(true);
+        dialogueSnapshot.start();
     }
 
     public void EndDialogue()
@@ -134,6 +139,7 @@ public class DialogueHelper : Singleton<DialogueHelper>
         RemoveContinueInput();
         ClueBoardManager.Instance.UnlockToggle();
         _background.SetActive(false);
+        dialogueSnapshot.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void AddContinueInput()

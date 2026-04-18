@@ -66,6 +66,8 @@ namespace UI
         public void LoadMainMenu()
         {
             Time.timeScale = 1f;
+            GameIsPaused = false;
+            AudioManager.Instance.PauseEffect(GameIsPaused);
             GameManager.SceneManager.LoadSceneAndSwap(mainMenuSceneName);
         }
         public void QuitGame()
