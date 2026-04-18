@@ -2,6 +2,8 @@ title: PeacockIntroduction
 tags: lc:Owl rc:
 ---
 Athena: <i>Melissa "Miss" Peacock. Never thought I'd get to meet her in person.</i>#s:Peacock#el:Surprised
+<<ChangeBGM 0>>
+<<ChangeLeisure 0>>
 Athena: <i>I've been listening to her music since the beginning of her career.</i>
 Athena: <i>Oh my gosh and her new single, “Birds of a Feather”, is soooo good.</i>#el:Happy
 Athena: Good morning Miss Peacock.#el:Neutral
@@ -36,6 +38,7 @@ Melissa: How can I help you, dear?#el:Neutral
 	<<PresentEvidence>>
 -> Nothing now
 	Melissa: Don't hesitate to ask.
+	<<StopBGM>>
 ===
 
 title: PeacockMain
@@ -87,7 +90,8 @@ Melissa: Now, what would you like to ask?#el:Neutral
 	Melissa: *laugh* <color=\#f3db82>Well she used to be in love with that duck.</color> If she were the ex killing type, I think you'd be the first she'd kill.
 	Athena: She.. what?#el:Surprised
 	<<CreateClue ClueBoardCanvas CrowEx>>
-	: Got Evidence <color=\#94e9e4>Morgana's Ex</color>
+	<<EvidenceSFX>>
+	Got Evidence <color=\#94e9e4>Morgana's Ex</color>
 	Melissa: Oh dear, did you not know?
 	Athena: ... #el:Sad
 	Athena: Let's just move on.#el:Neutral
@@ -131,12 +135,14 @@ Melissa: Who do you want to hear about?
 	Athena: <i>I used to frequent that place...</i>
 	Melissa: As much as she acts tough, I know the dear wouldn't hurt a fly.
 	Melissa: ...
+	<<HintSFX>>
 	Melissa: I must tell you, there's <color=\#f3db82>some evidence I was withholding</color>.
 	Melissa: After the murder <color=\#f3db82>I entered the room</color>.
 	Melissa: I was going to report the murder, but I found something incriminating.
 	Melissa: I found a <color=\#f3db82>piece of a black feather</color> amongst the glass.
 	<<CreateClue ClueBoardCanvas BlackFeathers>>
-	: Got Evidence <color=\#94e9e4>Black Feathers</color>
+	<<EvidenceSFX>>
+	Got Evidence <color=\#94e9e4>Black Feathers</color>
 	Melissa: I was drunk and I feared this would be used to incriminate Morgana.
 	Melissa: Foolishly, I took the feather...
 	Melissa: Please believe that Morgana wouldn't do it.
@@ -144,12 +150,14 @@ Melissa: Who do you want to hear about?
     <<jump PeacockPeople>>
 -> Chase
     Melissa: Chase used to frequent my arena, alongside Mallard.
+	<<HintSFX>>
 	Melissa: They both enjoyed betting on the winners, though I'd say <color=\#f3db82>Mallard had an unhealthy obsession with it</color>.
 	<<jump PeacockPeople>>
 -> Skipper
     Melissa: ...
 	Melissa: I did actually <color=\#f3db82>buy drugs from him</color>.
 	Melissa: It wasn't anything too strong, just Reed.
+	<<HintSFX>>
 	Melissa: But I can tell you <color=\#f3db82>he was selling much stronger stuff</color>.
 	Athena: <i>That's a pretty serious accusation.</i>
 	Athena: <i>I should <color=\#f3db82>interrogate Skipper about this</color>.</i>
@@ -209,6 +217,7 @@ Melissa: Oh! A letter.#el:Neutral
 title: PeacockBurnedNote
 ---
 Athena: I noticed your name on this note. Do you know why Mallard would address you in a note such as this?#el:Neutral
+<<HintSFX>>
 Melissa: He did <color=\#f3db82>owe me a large sum of money</color>.
 Athena: Do you know why someone may burn the note?
 Melissa: ...
@@ -253,6 +262,7 @@ title: PeacockId
 Melissa: Oh my, this is my Id.#el:Neutral
 Athena: It was laying on your floor. You should keep it in a safe place.
 Melissa: Thank you for letting me know darling.
+<<HintSFX>>
 Melissa: I wouldn't want the <color=\#f3db82>wrong person knowing my birthday</color>.
 ===
 
@@ -264,6 +274,7 @@ Athena: And the other peacock?
 Melissa: Oh honey. Did you not know?
 Athena: Know what?
 Melissa: <color=\#f3db82>That peacock was me.</color>
+<<ChangeBGM 2>>
 Athena: Wait... You're trans?#el:Surprised
 Melissa: Oh hahaha. I don't even try to hide it, darling.
 Melissa: I didn't even change my coloring.
@@ -292,7 +303,9 @@ Melissa: I just ask, please don't report this?
 Athena: I'll keep your secret.
 Athena: <i>I'll have to decide later. I need her to trust me for now.</i>#el:Intense
 <<set $CockfightingArena = true>>
+<<StopBGM>>
 Melissa: Oh thank you dear. I really appreciate it.
+<<SuccessSFX>>
 Melissa: I'll admit, there's <color=\#f3db82>more I wasn't telling you</color>. I'll answer any questions you have.
 ===
 
@@ -320,7 +333,8 @@ Melissa: Is there no briefcase on the manifest?
 Athena: It would appear he does not.
 Melissa: I clearly remember moving <color=\#f3db82>a heavy briefcase off of my bag</color>.
 <<CreateClue ClueBoardCanvas MissingBriefcase>>
-: Got Evidence <color=\#94e9e4>Missing Briefcase</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Missing Briefcase</color>#el:Neutral
 ===
 
 title: PeacockCrash

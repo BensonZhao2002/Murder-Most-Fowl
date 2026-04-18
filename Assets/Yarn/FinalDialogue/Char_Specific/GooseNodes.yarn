@@ -10,12 +10,15 @@ title: GooseIntroduction
 tags: lc:Owl rc:
 ---
 Athena: <i>Chase Gander…</i>#s:Goose#el:Neutral
+<<ChangeBGM 0>>
+<<ChangeLeisure 0>>
 Athena: <i>Richest man this side of the country. Owner of successful company Gander and Mallard Co.</i>#el:Surprised
 Athena: <i>I'm almost too intimidated to talk to him.</i>#el:Neutral
 Athena: Good Morning, Mr. Gander.
 Chase: Who am I speaking to?
 Athena: I'm Detective Athena Nox.
 Chase: I assure you there's not much more than what meets the eye.
+<<HintSFX>>
 Chase: This scenario is… <color=\#f3db82>unfortunate but not entirely unexpected</color>.
 Athena: I'm sure there's something you could help me with to shed light on the situation.
 <<jump GooseConversation>>
@@ -38,6 +41,7 @@ Chase: What do you want?#el:Neutral
 	<<PresentEvidence>>
 -> Nothing Now
 	Chase: My time is precious.
+	<<StopBGM>>
 ===
 
 
@@ -97,6 +101,7 @@ Chase: What else would you like to ask?#el:Neutral
 	Athena: I'll keep my mouth shut if you tell me everything you know.
 	Chase: ...
 	Chase: Alright.
+	<<SuccessSFX>>
 	Chase: I've been entirely truthful with you, but if you want <color=\#f3db82>more details about the other passengers</color>, feel free to ask.
 	<<set $ChaseQuestions = true>>
 -> <color=\#f3db82>Did you leave your room last night?</color><<if $MorganaTestimony>>
@@ -121,7 +126,8 @@ Chase: Who do you wish to hear about?#s:Goose#el:Neutral
 	Chase: Oh yes.
 	Chase: Only thing I could tell you about her is she has an attitude and <color=\#f3db82>writes with her left hand</color>.
 	<<CreateClue ClueBoardCanvas LeftHanded>>
-	: Got Evidence <color=\#94e9e4>Morgana's Left Handed</color>
+	<<EvidenceSFX>>
+	Got Evidence <color=\#94e9e4>Morgana's Left Handed</color>
 	Athena: <i>I suppose that could be relevant.</i>
 	<<jump GoosePeople>>
 -> Melissa
@@ -197,16 +203,19 @@ title: GooseMaidenPhoto
 Chase: You're investigating a murder, not my personal life.#el:Neutral
 Chase: However, if you must know...
 Chase: ...
+<<ChangeBGM 1>>
 Chase: That's my Eve. <color=\#f3db82>Evelyn Gander</color>.
 Athena: Is she your wife?
 Chase: ...
 Chase: Yes. She was.
 Athena: What happened?
 Chase: The Avian Flu pandemic <color=\#f3db82>of '20</color>
-Chase: The disease used to me much more potent than it is now.
+Chase: The disease used to be much more potent than it is now.
 Chase: ...
+<<HintSFX>>
 Chase: If only I could go back to that <color=\#f3db82>March</color>.
 Chase: There are so many things I would've done differently.
+<<StopBGM>>
 ===
 
 title: GooseAttorneyLetter

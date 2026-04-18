@@ -36,34 +36,45 @@ WARNING: This game contains graphic depictions of suicide.#bg:DarkHidden
 WARNING: If this may be triggering to you, please play no further.
 Athena: <i>*cough cough*</i> Ugh I can't sleep.#bg:Dark
 Athena: The Bird Flu is no joke...#el:Sad
+<<CrashSFX>>
 ???: CRASH #bg:DarkHidden
 Athena: ... what was that?#el:Surprised #bg:Dark
-: Got Evidence <color=\#94e9e4>Crash</color>
 <<CreateClue ClueBoardCanvas Crash>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Crash</color>
+<<ClopSFX>>
 ???: <i>clop clop clop</i>#bg:DarkHidden
 Athena: Who's up this late at night making such a ruckus?#el:Intense#bg:Dark
 Athena: Luckily *cough* for them I'm too sick to do anything about it.#el:Sad
 Athena: I'm already up. Perhaps I'll just read a book for a bit.
 Athena: ...
+<<TrainMoveSFXStop>>
 Athena: .....#el:Happy
 Athena: <i>zzzzz</i>
 <<ChangeRightCharacter>>
 <<ChangeLeftCharacter>>
+<<RattleDoorSFX>>
 Singsongy Woman: What's going on? Why's the door locked?
 Disgruntled Man: Isn't the parlor supposed to be open by now?
+<<FindKeySFX>>
 Tired Woman: I'm sorry, I'll get that unlocked for you.
 Athena: The early birds are up bright and early...#el:Neutral
 Athena: Unfortunately I am too...#el:Sad
 <<ChangeLeftCharacter>>
+<<UnlockDoorSFX>>
 Tired Woman: Alright you should be able to get in now.
 Tired Woman: I apologize for the inconvenience.
 Athena: Great. Now I can get back to slee-
 <<ChangeLeftCharacter>>
+<<FemaleScreamSFX>>
 Singsongy Woman: <b>AAAAAAAAAAAAAAH!</b>
 Disgruntled Man: Oh dear heavens.
 Nervous Boy: What on earth?
 Athena: What's that all about?#el:Surprised
 Athena: I should check this out.#el:Neutral
+<<OpenDoorSFX>>
+<<TrainMoveSFXStart>>
+<<SetTrainLocationSFX Hall>>
 Athena: Oh dear Phoenix. How did this happen?#el:Surprised#bg:Discovery
 Athena: Was this a suicide...?#lc:
 Athena: No...#lc:
@@ -77,10 +88,12 @@ Athena: Say, bellboy, if I can prove to you this “suicide” was in fact a mur
 Skipper: I suppose… If this was a murder it would help to have a detective on the case.#e:Neutral
 Athena: It's a deal.
 Athena: Before I begin... could I ask, what is the victim's name?
+<<HintSFX>>
 Skipper: Mallard. <color=\#f3db82>Seaton Mallard.</color>
 Athena: Thank you. I ensure you I'll get to the bottom of this.
 <<ChangeRightCharacter>>
 Athena: ...#el:Intense
+<<StopBGM>>
 ===
 
 title: StartSkip
@@ -96,6 +109,7 @@ title: AthenaRecall
 tags: c:Owl:
 ---
 Athena: The murder must've transpired last night.#e:Neutral
+<<HintSFX>>
 Athena: Now that I think about it <color=\#f3db82>I did hear a lot of weird noises</color> while reading my book last night...
 Athena: Let's see.#el:Intense
 Athena: First, I heard <color=\#f3db82>muffled talking</color> outside my room followed by <color=\#f3db82>two doors opening and closing.</color>#el:Neutral
@@ -113,7 +127,7 @@ Athena: I should <color=\#f3db82>find clues</color> and <color=\#f3db82>question
 title: Skip
 tags: c:Owl:
 ---
-:...
+...
 ===
 
 title: HangingDuck
@@ -124,7 +138,8 @@ Athena:<i> Poor guy.</i>
 Athena: <i>He shows clear signs of asphyxiation, but there's something off...</i>#el:Intense
 Athena: <i>Why are the feathers laying so flat?</i>
 Athena:<i> He would've at least struggled a little if he was awake...</i>
-: Got Evidence <color=\#94e9e4>Suffocation</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Suffocation</color>#el:Neutral
 ===
 
 title: Shards
@@ -132,7 +147,8 @@ tags: c:Owl:
 ---
 Athena: <i>Glass shards...</i>
 Athena: <i>Why would that be there?</i>#el:Intense
-: Got Evidence <color=\#94e9e4>Glass Shards</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Glass Shards</color>#el:Neutral
 <<set $HasShards = true>>
 ===
 
@@ -142,18 +158,21 @@ tags: c:Owl:
 Athena: <i>That's certainly a short stool.</i>
 Athena: <i>He had access to tall barstools and yet he used this step-stool.</i>
 Athena: <i>I don't even know if he's tall enough to have reached the noose even standing on this stool.</i>
-: Got Evidence <color=\#94e9e4>Short Stool</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Short Stool</color>
 ===
 
 title: MissingBottle
 tags: c:Owl:
 ---
 <<if $Tutorial is false>>
+	<<HintSFX>>
 	Athena: <i>The bottle was used to <color=\#f3db82>knock the victim out.</color></i>
 <<elseif $PresentedShards>>
 	Athena: <i>The missing bottle <color=\#f3db82>must be involved</color> somehow in the murder...</i>
 <<elseif $HasShards>>
 	Athena: <i>These wine bottles match the shards I just picked up.</i>
+	<<HintSFX>>
 	Athena: <i>... Perhaps <color=\#f3db82>Morgana would know something</color> about this...</i>
 <<else>>
 	Athena: <i>Hmmm, this shelf doesn't look completely stocked.</i>
@@ -167,19 +186,23 @@ tags: c:Owl:
 ---
 Athena: <i>A key?</i>
 Athena: <i>Why would Mallard have a key in his pocket?</i>
-: Got Evidence <color=\#94e9e4>Key</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Key</color>
 ===
 
 title: Handkerchief
 tags: c:Owl:
 ---
+<<HintSFX>>
 Athena: <i>That's definitely a <color=\#f3db82>blunt force wound</color> on his head.</i>
 Athena: <i>That's strange though. It looks like someone <color=\#f3db82>intentionally cleaned the wound</color>...</i>
 Athena: <i>But wait, what's this?</i>
+<<HintSFX>>
 Athena: <i><color=\#f3db82>A handkerchief</color> in his hat?</i>
 Athena: <i>This must be what they used to clean out the wound.</i>
 Athena: <i>... but why?</i>
-: Got Evidence <color=\#94e9e4>Bloody Handkerchief</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Bloody Handkerchief</color>
 ===
 
 title: PocketKnife
@@ -188,9 +211,11 @@ tags: c:Owl:
 Athena: <i>Ah, a knife.</i>
 Athena: <i>Quite a nice pocket knife as well.</i>
 Athena: <i>...?</i>#el:Surprised
+<<HintSFX>>
 Athena: What's this <color=\#f3db82>strange white powder</color> on the knife?
 Athena: I hope it's nothing too illegal.#el:Intense
-: Got Evidence <color=\#94e9e4>Pocket Knife</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Pocket Knife</color>#el:Neutral
 ===
 
 title: BurnedNote
@@ -201,16 +226,19 @@ Athena: <i>I should try to read this.</i>
 Athena: <i>...</i>
 Athena: <i>That's weird. Of the handwriting I can see, it looks characteristic of someone <color=\#f3db82>right handed.</color></i>
 <<set $HasLetter to true>>
-: Got Evidence <color=\#94e9e4>Burned Note</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Burned Note</color>
 ===
 
 title: SootyGloves
 tags: c:Owl:
 ---
 Athena: <i>Huh? Why would Morgana have these?</i>#el:Neutral
+<<HintSFX>>
 Athena: <i>There's <color=\#f3db82>so much soot</color> on these gloves...</i>#el:Intense
 Athena: <i>There must be <color=\#f3db82>some connection</color> to this piece of evidence.</i>
-: Got Evidence <color=\#94e9e4>Sooty Gloves</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Sooty Gloves</color>#el:Neutral
 ===
 
 title: LoversPhoto
@@ -222,7 +250,8 @@ Athena: <i> I remember when we took that photo.</i>
 Athena: <i>Before I had to go...</i>
 Athena: <i>Oh Morgana...</i>
 Athena: <i>You kept it all this time?</i>
-: Got Evidence <color=\#94e9e4>The Lovers</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>The Lovers</color>#el:Neutral
 ===
 
 title: MaidenPhoto
@@ -234,7 +263,8 @@ Athena: <i>Did Mr. Gander know her?</i>
 Athena: <i>Oh there's some text on the back</i>
 Athena: <i><color=\#94e9e4>"I'll always remember my last day with you."</color></i>#el:Sad
 Athena: <i>Is she..gone?</i>
-: Got Evidence <color=\#94e9e4>The Maiden</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>The Maiden</color>#el:Neutral
 ===
 
 title: AttorneyLetter
@@ -243,7 +273,8 @@ tags: c:Owl:
 Athena: <i>This looks like a letter from an attorney.</i>#el:Neutral
 Athena: <i>Why would <color=\#94e9e4>Mr. Gander require an attorney</color> right now?</i>
 Athena: <i>And who is this Phoenix Right guy?</i>#el:Surprised
-: Got Evidence <color=\#94e9e4>Attorney's Letter</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Attorney's Letter</color>#el:Neutral
 ===
 
 title: DebtDocument
@@ -251,7 +282,8 @@ tags: c:Owl:
 ---
 Athena: <i>This is a lot of money!</i>#el:Surprised
 Athena: <i>Was Mallard truly in this much debt?</i>
-: Got Evidence <color=\#94e9e4>Debt Documents</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Debt Documents</color>#el:Neutral
 ===
 
 title: DuckReed
@@ -260,7 +292,8 @@ tags: c:Owl:
 Athena: <i>Oh my!</i>#el:Surprised
 Athena: <i>I haven't seen one of those since college.</i>
 Athena: <i>I guess he needed to take the edge off a bit...</i>#el:Neutral
-: Got Evidence <color=\#94e9e4>Mallard's Reed</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Mallard's Reed</color>
 ===
 
 title: Id
@@ -268,13 +301,15 @@ tags: c:Owl:
 ---
 Athena: <i>Why is Melissa's Id just laying around.</i>
 Athena: <i>I guess it doesn't hurt to have more intel on someone.</i>#el:Happy
-: Got Evidence <color=\#94e9e4>Melissa's Id</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Melissa's Id</color>
 ===
 
 title: Briefcase
 tags: c:Owl:
 ---
 Athena: <i>Alright this must be where Morgana keeps her cigarettes.</i>
+<<HintSFX>>
 Athena: <i>Oh dear what is this? <color=\#f3db82>A briefcase</color>?</i>#el:Surprised
 Athena: Morgana, do you have a briefcase?#el:Neutral
 Morgana: No? Why?
@@ -284,9 +319,11 @@ Athena: How could it have gotten there?
 Morgana: The only other people that know about my hiding spot are <color=\#f3db82>Mallard and Melissa</color>.
 Morgana: Melissa went to bed around the same time I did though...
 Athena: <i>Could <color=\#f3db82>Mallard have placed it there</color>?</i>#el:Intense
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Briefcase</color>
 <<CreateClue ClueBoardCanvas Cigs>>
-: Got Evidence <color=\#94e9e4>Briefcase</color>
-: Got Item <color=\#94e9e4>Cigarettes</color>#el:Neutral
+<<EvidenceSFX>>
+Got Item <color=\#94e9e4>Cigarettes</color>#el:Neutral
 ===
 
 title: OpenSafe
@@ -310,11 +347,13 @@ Athena: <i>Ha! I can't believe her birthday actually worked.</i>
 Athena: <i>Let's see...</i>
 Athena: <i>A photo? Huh, I dont recognize these people.</i>
 <<CreateClue ClueBoardCanvas FightersPhoto>>
-: Got Evidence <color=\#94e9e4>Fighters Photo</color>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Fighters Photo</color>
 Athena: <i>And what's this?</i>#e:Surprised
 Athena: <i>Oh my, this is reed.</i>
-: Got Evidence <color=\#94e9e4>Melissa's Reed</color>
 <<CreateClue ClueBoardCanvas PeacockReed>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Melissa's Reed</color>
 ===
 
 title: GanderSafe
@@ -331,12 +370,15 @@ tags: c:Owl:
 Athena: <i>That's grim... He used his wife's death month and year...</i>
 Athena: Let's see what's in here...
 Athena: A letter, a betting slip, and a newspaper...
-: Got Evidence <color=\#94e9e4>Love Letter</color>
-: Got Evidence <color=\#94e9e4>Betting Slip</color>
-: Got Evidence <color=\#94e9e4>Newspaper</color>
 <<CreateClue ClueBoardCanvas LoveLetter>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Love Letter</color>
 <<CreateClue ClueBoardCanvas BettingSlip>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Betting Slip</color>
 <<CreateClue ClueBoardCanvas Newspaper>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Newspaper</color>
 ===
 
 title: Lawsuit

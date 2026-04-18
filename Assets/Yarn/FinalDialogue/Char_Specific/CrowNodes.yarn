@@ -4,6 +4,8 @@ position: -350,-575
 color: green
 ---
 Athena: <i>Oh Phoenix Above, what do you mean SHE's here?</i>#s:Crow#el:Intense
+<<ChangeBGM 0>>
+<<ChangeLeisure 1>>
 Athena: <i>Just what I need, my romantic life getting tangled with my professional one.</i>
 Athena: <i>I really don't need to be reminded of that messy breakup now.</i>#el:Sad
 Morgana: Oh look who it is.#el:Neutral
@@ -38,6 +40,7 @@ Morgana: Not a chance.#e:Angry
 -><color=\#94e9e4>Present</color>
 	<<PresentEvidence>>
 -> Leave
+    <<StopBGM>>
 ===
 
 title: CrowMain
@@ -98,6 +101,7 @@ color: green
         Morgana: Anyways...#e:Neutral
         Morgana: He soon stepped away to smoke a cigarette.
         Morgana: Melissa came in, and told Mallard to cluck off.
+        <<HintSFX>>
         Morgana: Mallard made a weird face though... <color=\#f3db82>as if he figured something out.</color>#e:Sad
         Morgana: Melissa sat down with me, and Mallard made some distance. #e:Neutral
         Morgana: Skipper soon came in for his break and began chatting with Mallard.
@@ -105,6 +109,7 @@ color: green
         Morgana: He walked past the bar to leave the room, and I overheard him mumbling...
         Morgana: <color=\#f3db82>"Mark my words. This is the day I get even."</color>
         Morgana: Shortly after Melissa and I left to go to sleep, I heard Gander in the hall.
+        <<HintSFX>>
         Morgana: I think he was <color=\#f3db82>headed to Melissa's room</color>.
         Morgana: I...#e:Sad
         Morgana: I'm sorry.
@@ -153,6 +158,7 @@ Morgana: Who do you want to hear about?
 -> Melissa
     Morgana: We've been close friends since shortly after we broke up.#e:Sad
     Morgana: We were hanging out last night and I made her quite a few drinks.#e:Neutral
+    <<HintSFX>>
     Morgana: I technically wasn't supposed to, but <color=\#f3db82>I gave her my spare key</color> so she could stay in the parlor after I went to bed.
     <<CreateClue ClueBoardCanvas MelissaKey>>
     Morgana: She asked me so nicely, how could I say no?
@@ -160,6 +166,7 @@ Morgana: Who do you want to hear about?
 -> Chase
     Morgana: He just comes across as a snobby businessman to me.
     Morgana: In the brief time I dated Mallard, all he ever quacked about was that man.
+    <<HintSFX>>
     Morgana: He was <color=\#f3db82>obsessed with him</color>.
     Morgana: I think he always felt like he was living in Mr. Gander's shadow.
     Morgana: No wonder he <color=\#f3db82>stole so much money from their company</color>.
@@ -259,9 +266,10 @@ Athena: Glass, Bottles, Alcohol… Isn't that your specialty?
 Morgana: …
 Morgana: I did notice a wine bottle was missing from the bar today. #e:Neutral
 Morgana: But don't you try to pin this one on me, Nox.
-: Got Evidence <color=\#94e9e4>Bottle</color>
-<<set $PresentedShards = true>>
 <<CreateClue ClueBoardCanvas Bottle>>
+<<set $PresentedShards = true>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Bottle</color>
 ===
 
 title: CrowDismissal
@@ -282,6 +290,7 @@ title: CrowLoversPhoto
 position: 79,-222
 ---
 <<if $AskingCrow>>
+    <<ChangeBGM 1>>
     Athena: You had this photo all along...
     Athena: You cared about me so much.
     Athena: ...
@@ -313,12 +322,15 @@ position: 79,-222
     Athena: ...
     Athena: I have a case to attend to, but as soon as I'm done, I have someone important to spend time with.#el:Neutral
     Morgana: ..!#e:Embarrassed
+    <<StopBGM>>
     Morgana: Also uh...#e:Neutral
     Morgana: I wasn't <color=\#f3db82>telling you everything</color> about last night...
+    <<SuccessSFX>>
     Morgana: I'm willing to <color=\#f3db82>answer your question</color> now if you need me to.
     Morgana: ... Though first.
     Morgana: You wanna smoke? For old time's sake?
     Athena: I'd love to. #el:Happy
+    <<HintSFX>>
     Morgana: I keep my cigarettes in a <color=\#f3db82>secret compartment in the bar</color>.#el:Neutral
     Morgana: Be a dear and grab them for me?
     <<set $CrowCigs to true>>
@@ -374,6 +386,7 @@ position: -12,116
 Athena: Did you hear a crash last night?
 Morgana: Yes I did.
 Morgana: It sounded like it came from the <color=\#f3db82>cargo hold</color>.
+<<HintSFX>>
 Morgana: You should <color=\#f3db82>ask Skipper about it</color>.
 Morgana: He <color=\#f3db82>manages the luggage</color>, so he probably knows something about it.
 ===

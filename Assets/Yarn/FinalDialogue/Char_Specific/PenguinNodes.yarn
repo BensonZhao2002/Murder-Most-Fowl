@@ -3,6 +3,8 @@ tags: lc:Owl rc:
 position: -1134,-1037
 ---
 Athena:<i> This is that bellboy that stopped me earlier. He looks so nervous…</i>
+<<ChangeBGM 0>>
+<<ChangeLeisure 1>>
 Athena: <i>Makes sense. If I worked here, I would be nervous too.</i>
 Athena: <i>Poor kid.</i>
 <<set_character_idle_node Penguin PenguinProof>>
@@ -24,6 +26,7 @@ Skipper: Is there any way I can help?#e:Happy#s:Penguin
 -> Not now
 	Athena: Thank you for your help. I'll be back later.
 	Skipper: Glad to help!#e:Happy
+	<<StopBGM>>
 ===
 
 title:PenguinQuestions0
@@ -35,6 +38,7 @@ Skipper: What would you like to ask?
 	Athena: Your keys? What happened to them?
 	Skipper: I believe I misplaced them. Though...
 	Skipper: ...#e:Sad
+	<<HintSFX>>
 	Skipper: Now that I think about it.. <color=\#f3db82>that eve Mallard offered to hang my coat up for me.</color>#e:Neutral
 	Skipper: I didn't think much of it at the time, but I believe my keys went missing around that time.
 	Athena: Did you ever find your keys?
@@ -42,6 +46,7 @@ Skipper: What would you like to ask?
 	Athena: Did you notice anything else last night?
 	Skipper: <color=\#f3db82>I heard a crash in the middle of the night</color>, but I did not have the energy to deal with it.#e:Neutral
 	Skipper: I swear I tied all the luggage down properly.
+	<<HintSFX>>
 	Skipper: Though... I could've missed something when <color=\#f3db82>Melissa came to get something from her luggage</color>.
 	Athena: What about the morning? 
 	Skipper: I woke to the sound of chatter outside.
@@ -59,8 +64,9 @@ Skipper: What would you like to ask?
 	Skipper: Thankfully I haven't had to deal with him much when I worked with Mr. Gander.
 	Athena: What do you know about Mallard and Gander?
 	Skipper: I know they started the company together, but if you want to know more, Mr. Gander would be the one to ask.
-	: Got Evidence <color=\#94e9e4>Gander's Business Partner</color>
 	<<CreateClue ClueBoardCanvas GooseBusinessPartner>>
+	<<EvidenceSFX>>
+	Got Evidence <color=\#94e9e4>Gander's Business Partner</color>
 	<<jump PenguinConversation>>
 -> Do you know if anyone would want to kill him?#e:Neutral
 	Skipper: Oh he knew how to make enemies.
@@ -112,6 +118,7 @@ Skipper: Are you sure? You should be <color=\#f94449>certain</color> before we c
 -> I'm sure.
 	Skipper: Alright I'll call them now.
 	Skipper: Get your <color=\#94e9e4>evidence</color> ready for the police.
+	<<TrainMoveSFXStop>>
 	<<jump EndingDialogue>>
 -> Nevermind
 	Skipper: Better keep investigating. I'll be here until you're ready.
@@ -125,6 +132,7 @@ Athena: Tell me about...
 -> Chase Gander
 	Skipper: Ah, Gander.#e:Neutral
 	Skipper: Mallard definitely.. left on bad terms with him.#e:Sad
+	<<HintSFX>>
 	Skipper: I'm not sure exactly why, but Mr. Gander had told that duck <color=\#f3db82>he needs to find a new job</color>.
 	Skipper: Kicked the poor guy off to the streets.
 	Skipper: Would you like to know about anyone else?#e:Neutral
@@ -284,6 +292,7 @@ position: -445,-156
 color: red
 ---
 Skipper: Hmm.. I'm not sure if that's a weapon...
+<<HintSFX>>
 Skipper: Perhaps you could <color=\#f3db82>ask some of the passengers about your evidence</color>.
 Skipper: That could <color=\#f3db82>shed some light</color> on your evidence.
 Athena: Thanks. I'll try that.
@@ -298,7 +307,9 @@ Athena: Athena. Athena Nox.
 <<set $Tutorial to false>>
 <<ChangeRightCharacter>>
 <<ChangeLeftCharacter>>
+<<SuccessSFX>>
 Skipper: Thank you Detective Nox. I'll give you some time to investigate.#e:Happy#el:Neutral
+<<HintSFX>>
 Skipper: Feel free to <color=\#f3db82>investigate the body</color> if you deem necessary.
 Skipper: Be sure to <color=\#f3db82>question everyone thoroughly</color>.
 Skipper: If you have any questions for me, I'm happy to answer.
@@ -311,16 +322,18 @@ position: 730,184
 ---
 Skipper: Oh! That's my key! Where did you find it?#e:Angry
 Athena: I found them in the victim's pocket...
-: Got Evidence <color=\#94e9e4>Skipper's Key</color>
+<<CreateClue ClueBoardCanvas PenguinKey>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Skipper's Key</color>
 Skipper: Oh. I had a feeling he was the one who took them...#e:Sad
 Skipper: ...
 Skipper: Why don't you take the key for a bit? You can use it to search the rest of the car. #e:Neutral
 Skipper: I <color=\#f3db82>have a spare key</color>, so I don't need it for now.
-<<CreateClue ClueBoardCanvas PenguinKey>>
 Skipper: Oh also! Here take this cargo manifest.
 Skipper: It may be useful in your investigation.
 <<CreateClue  ClueBoardCanvas CargoManifest>>
-: Got Evidence <color=\#94e9e4>Cargo Manifest</color>#el:Neutral
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Cargo Manifest</color>#el:Neutral
 Skipper: This document contains every passenger and their luggage.
 Skipper: I checked the cargo hold this morning and ensured there was nothing missing.
 Athena: Thank you, Skipper.
@@ -335,8 +348,9 @@ Athena: Why is that?
 Skipper: When I went to check on the cargo in the morning, I noticed luggage was all over the ground.
 Skipper: Upon closer inspection I saw the <color=\#f3db82>rope tying the luggage was missing</color>.
 Athena: <i>Could it be the same rope used to hang the victim?</i>#el:Intense
-: Got Evidence <color=\#94e9e4>Cargo Hold Rope</color>
 <<CreateClue  ClueBoardCanvas CargoHoldRope>>
+<<EvidenceSFX>>
+Got Evidence <color=\#94e9e4>Cargo Hold Rope</color>
 Athena: Tell me, who has access to the cargo hold?#el:Neutral
 Skipper: <color=\#f3db82>Anyone with a staff key</color> can access the cargo hold.
 Skipper: We keep it locked at night to prevent theft.
@@ -423,6 +437,7 @@ title: PenguinBriefcase
 position: 920,-305
 ---
 <<if $PenguinBust>>
+<<ChangeBGM 3>>
 Athena: <i>This briefcase has to be his.</i>#el:Intense
 Athena: Is this yours.
 Skipper: I-
@@ -460,6 +475,7 @@ Skipper: ...#e:Neutral
 Skipper: I didn't do anything.#e:Neutral
 Skipper: Do you have any more questions?
 Athena: No. I think that's all I need.
+<<StopBGM>>
 <<set $PenguinCaught = true>>
 <<else>>
 	<<jump PenguinDismissal>>
@@ -469,6 +485,8 @@ Athena: No. I think that's all I need.
 title: EndingDialogue
 ---
 Athena: ... #e:Intense#bg:Jail #rc:
+<<ChangeBGM 0>>
+<<ChangeLeisure 1>>
 Athena: <i>Let me review my clues before they show up.</i>
 Athena: <i>Here he comes.</i>
 Officer: Hello ma'am. I was informed there was a murder discovered aboard this vehicle.#e:Neutral#rc:Parrot
