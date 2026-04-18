@@ -482,6 +482,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439434112}
   m_CullTransparentMesh: 1
+--- !u!1 &447868764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447868766}
+  - component: {fileID: 447868765}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &447868765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447868764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b486f138cf43f8243b9e593b83d141ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicList:
+  - Guid:
+      Data1: 442722726
+      Data2: 1321233250
+      Data3: 2004624822
+      Data4: -1984706905
+    Path: event:/Music/Leisure Theme
+  - Guid:
+      Data1: -621343343
+      Data2: 1144242051
+      Data3: -382869067
+      Data4: -210749033
+    Path: event:/Music/Start Music
+  - Guid:
+      Data1: 765647763
+      Data2: 1259591308
+      Data3: 1941464491
+      Data4: 316826349
+    Path: event:/Music/Peacock
+  - Guid:
+      Data1: -1922771416
+      Data2: 1204786309
+      Data3: -111328842
+      Data4: 452533512
+    Path: event:/Music/Penguin
+  startMusicIndex: 1
+--- !u!4 &447868766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447868764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460715814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,3 +1418,4 @@ SceneRoots:
   - {fileID: 1898890861}
   - {fileID: 1301413562}
   - {fileID: 1391608653}
+  - {fileID: 447868766}
